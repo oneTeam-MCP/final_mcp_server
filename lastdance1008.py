@@ -10,18 +10,7 @@ from typing import Optional
 
 # ---- DB 설정 (가능하면 환경변수로 관리 권장) ----
 # Smithery에서 URL 파라미터로 전달되는 설정을 환경변수로 변환
-def get_db_config():
-    """Smithery 설정을 환경변수에서 읽어오는 함수"""
-    return {
-        "host": os.getenv("DB_HOST", "oneteam-db.chigywqq0qt3.ap-northeast-2.rds.amazonaws.com"),
-        "user": os.getenv("DB_USER", "admin"),
-        "password": os.getenv("DB_PASSWORD", "Oneteam2025!"),
-        "database": os.getenv("DB_NAME", "oneteam_DB"),
-        "port": int(os.getenv("DB_PORT", "3306"))
-    }
 
-# 전역 DB 설정
-DB_CONFIG = get_db_config()
 DB_HOST = DB_CONFIG["host"]
 DB_USER = DB_CONFIG["user"]
 DB_PASSWORD = DB_CONFIG["password"]
@@ -540,3 +529,4 @@ if __name__ == "__main__":
     import os
     port = int(os.environ.get("PORT", 8081))
     uvicorn.run(app, host="0.0.0.0", port=port, log_level="info")
+
